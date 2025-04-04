@@ -7,12 +7,13 @@ public class TireSO : ScriptableObject
 {
     public Mesh mesh;
 
-    [Header("SuspensionSettings")]
-    // Distância de repouso
-    public float suspensionRestDist = 0.5f;
-    // Força da mola
+    [Header("Suspension Settings")]
+    // Spring resistance/strength
     public float springStrength = 20000f;
-    // Amortecimento
+    // Distance between car's rigidBody and groundLayer
+    [Range(0f, 1f)]
+    public float suspensionRestDist = 0.5f;
+    // Damping
     [Range(0f,10f)]
     public float springDamper;
 }

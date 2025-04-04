@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TireTest
   m_EditorClassIdentifier: 
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  suspensionRestDist: 0.5
-  springStrength: 100
-  springDamper: 1
+  springStrength: 500
+  suspensionRestDist: 0.75
+  springDamper: 10
