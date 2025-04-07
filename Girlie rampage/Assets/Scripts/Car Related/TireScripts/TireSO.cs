@@ -23,7 +23,20 @@ public class TireSO : ScriptableObject
 
     [Header("Steering Settings")]
     //public float steeringVel;
-    public float tireGripFactor;
+    [Range(0f, 1f)]
+    public float frontTireGripFactor;
+    [Range (0f, 1f)]
+    public float backTireGripFactor;
+    [Range(0f, 10f)]
+    public float steerReturnSpeed = 5f;
+
+    [Header("Acceleration Settings")]
+    [Range(0f, 1000f)]
+    public float carTopSpeed;
+
+    [Header("Torque Settings")]
+    public AnimationCurve powerCurve = AnimationCurve.Linear(0, 1, 1, 0.1f);
+    public float torqueMultiplier;
 
     [Header("Raycast Settings")]
     public LayerMask groundLayer;

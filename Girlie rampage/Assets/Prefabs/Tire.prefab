@@ -93,7 +93,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3609526444206039059}
   - component: {fileID: 5345739158922770529}
-  - component: {fileID: 7296766497753750593}
   - component: {fileID: 4443919155215650121}
   m_Layer: 0
   m_Name: Tire
@@ -133,21 +132,7 @@ MonoBehaviour:
   carController: {fileID: 0}
   tireTransform: {fileID: 3609526444206039059}
   carRigidBody: {fileID: 0}
---- !u!114 &7296766497753750593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7452595960637684897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db07ebf405c65d04babd38c16444bf23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carController: {fileID: 0}
-  tireTransform: {fileID: 3609526444206039059}
-  carRigidBody: {fileID: 0}
+  isFrontTire: 0
 --- !u!135 &4443919155215650121
 SphereCollider:
   m_ObjectHideFlags: 0
