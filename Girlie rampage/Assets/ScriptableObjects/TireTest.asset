@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: TireTest
   m_EditorClassIdentifier: 
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  description: 
+  tireMass: 2
   springStrength: 500
   suspensionRestDist: 0.75
   springDamper: 10
+  tireGripFactor: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64

@@ -16,7 +16,7 @@ public class TireSuspension : TireClass
             Vector3 tireWorldVel = carRigidBody.GetPointVelocity(tireTransform.position);
 
             // Calculate offset from the raycast
-            float offset = carScript.equippedTireSO.suspensionRestDist - tireRay.distance;
+            float offset = carController.equippedTireSO.suspensionRestDist - tireRay.distance;
 
             // Calculate velocity along the spring direction
             // springDir is a unit vector, so this returns the magnitude of tireWorldVel
@@ -24,7 +24,7 @@ public class TireSuspension : TireClass
             float vel = Vector3.Dot(springDir, tireWorldVel);
 
             // Calculate the magnitude of the dampened spring force
-            float force = (offset * carScript.equippedTireSO.springStrength) - (vel * carScript.equippedTireSO.springDamper);
+            float force = (offset * carController.equippedTireSO.springStrength) - (vel * carController.equippedTireSO.springDamper);
 
             // Apply the force to he position of the tire, in the suspension direction
             carRigidBody.AddForceAtPosition(springDir * force, tireTransform.position);

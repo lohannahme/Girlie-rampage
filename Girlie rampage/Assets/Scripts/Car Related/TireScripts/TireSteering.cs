@@ -4,35 +4,36 @@ using UnityEngine;
 
 public class TireSteering : TireClass
 {
-
-    [Header("Steering Settings")]
-    public float steeringVel;
-    public float tireGripFactor;
-
-
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
         if (rayDidHit)
         {
-            // World-space direction of the spring force
+            // World-space direction perpendicular to the tire's forward axis (used for steering)
             Vector3 steeringDir = tireTransform.right;
 
-            // World-space velocity of the suspension
+            // Velocity of the car at the tire's position
             Vector3 tireWorldVel = carRigidBody.GetPointVelocity(tireTransform.position);
 
-            // steeringDir is a unit vector, so this returns the magnitude of tireWorldVel
-            float desiredVelChange = -steeringVel * tireGripFactor;
+            // Lateral velocity component relative to the tire
+            float lateralVel = Vector3.Dot(steeringDir, tireWorldVel);
 
-            // Turn change in velocity into an acceleration
-            // Produces the acceleration necessary to change the velocity by desiredVelChange
-            // in 1 physics step
+            // Desired change in velocity to counteract sliding, scaled by grip
+            float desiredVelChange = -lateralVel * carController.equippedTireSO.tireGripFactor;
+
+            // Required acceleration to achieve the velocity change in one physics step
             float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
 
-            // Force = Mass * Acceleration
-            carRigidBody.AddForceAtPosition(steeringDir * tireMass * desiredAccel,
-                tireTransform.position);
+            // Calculated force to apply to the tire
+            Vector3 force = steeringDir * carController.equippedTireSO.tireMass * desiredAccel;
+
+            // Clamp the force to avoid unrealistic steering behavior
+            float maxForce = 500f;
+            force = Vector3.ClampMagnitude(force, Mathf.Abs(lateralVel) * maxForce);
+
+            // Apply force only if lateral velocity is significant
+            if (Mathf.Abs(lateralVel) > 0.01f)
+                carRigidBody.AddForceAtPosition(force, tireTransform.position);
         }
     }
-
 }

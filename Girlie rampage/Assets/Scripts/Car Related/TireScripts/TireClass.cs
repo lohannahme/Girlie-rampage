@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class TireClass : MonoBehaviour
 {
-    public CarController carScript;
+    public CarController carController;
     public Transform tireTransform;
     public Rigidbody carRigidBody;
-    public float tireMass = 2;
-
-    [Header("Raycast Settings")]
-    public LayerMask groundLayer;
 
     protected bool rayDidHit;
     protected RaycastHit tireRay;
@@ -22,15 +18,15 @@ public class TireClass : MonoBehaviour
             carRigidBody = GetComponentInParent<Rigidbody>();
         }
 
-        if (carScript == null)
+        if (carController == null)
         {
-            carScript = GetComponentInParent<CarController>();
+            carController = GetComponentInParent<CarController>();
         }
     }
 
     protected virtual void FixedUpdate()
     {
         rayDidHit = Physics.Raycast(tireTransform.position, -tireTransform.up, out tireRay,
-        carScript.equippedTireSO.suspensionRestDist, groundLayer);
+        carController.equippedTireSO.suspensionRestDist, carController.equippedTireSO.groundLayer);
     }
 }

@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5822349691211217436}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 0.1693, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3609526444206039059}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &6788968377420950533
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 3609526444206039059}
   - component: {fileID: 5345739158922770529}
   - component: {fileID: 7296766497753750593}
-  - component: {fileID: 3759438517978945845}
   - component: {fileID: 4443919155215650121}
   m_Layer: 0
   m_Name: Tire
@@ -113,7 +112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.63, y: -0.28, z: 1.206}
-  m_LocalScale: {x: 1.45, y: 1.45, z: 1}
+  m_LocalScale: {x: 1.45, y: 1.45, z: 1.45}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4612903926858127023}
@@ -131,13 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc28274534a4c04386545224c952872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carScript: {fileID: 0}
+  carController: {fileID: 0}
   tireTransform: {fileID: 3609526444206039059}
   carRigidBody: {fileID: 0}
-  tireMass: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &7296766497753750593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,36 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db07ebf405c65d04babd38c16444bf23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carScript: {fileID: 0}
+  carController: {fileID: 0}
   tireTransform: {fileID: 3609526444206039059}
   carRigidBody: {fileID: 0}
-  tireMass: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  steeringVel: 1000
-  tireGripFactor: 1000
---- !u!114 &3759438517978945845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7452595960637684897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db07ebf405c65d04babd38c16444bf23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carScript: {fileID: 0}
-  tireTransform: {fileID: 3609526444206039059}
-  carRigidBody: {fileID: 0}
-  tireMass: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  steeringVel: 1
-  tireGripFactor: 1
 --- !u!135 &4443919155215650121
 SphereCollider:
   m_ObjectHideFlags: 0

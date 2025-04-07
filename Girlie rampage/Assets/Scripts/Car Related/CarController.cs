@@ -7,30 +7,34 @@ public class CarController : MonoBehaviour
     public TireSO equippedTireSO;
 
     [Header("Wheel Transforms")]
-    public Transform leftWheel;
-    public Transform rightWheel;
+    public TireClass leftWheel;
+    public TireClass rightWheel;
 
     [Header("Steering Settings")]
-    public float maxSteerAngle = 30f;
+    [Range(0f, 100f)]
+    public float maxSteerAngle = 50f;
+    [Range(0f, 500f)]
     public float steerSpeed = 100f;
 
-    private float currentSteerAngle = 0f;
+    private float _currentSteerAngle = 0f;
 
-    public float CurrentSteerAngle => currentSteerAngle; // Allows access from other scripts
+    public float CurrentSteerAngle => _currentSteerAngle;
 
     void Update()
     {
-        // Get player input (-1 for A, 1 for D)
         float steerInput = Input.GetAxis("Horizontal");
 
-        // Calculate the new angle based on player input
-        currentSteerAngle += steerInput * steerSpeed * Time.deltaTime;
+        _currentSteerAngle += steerInput * steerSpeed * Time.deltaTime;
+        _currentSteerAngle = Mathf.Clamp(_currentSteerAngle, -maxSteerAngle, maxSteerAngle);
 
-        // Clamp the steering angle within the allowed range
-        currentSteerAngle = Mathf.Clamp(currentSteerAngle, -maxSteerAngle, maxSteerAngle);
+        if (leftWheel != null && leftWheel.tireTransform != null)
+        {
+            leftWheel.tireTransform.localRotation = Quaternion.Euler(0f, _currentSteerAngle, 0f);
+        }
 
-        // Apply rotation to both wheels
-        leftWheel.localRotation = Quaternion.Euler(0f, currentSteerAngle, 0f);
-        rightWheel.localRotation = Quaternion.Euler(0f, currentSteerAngle, 0f);
+        if (rightWheel != null && rightWheel.tireTransform != null)
+        {
+            rightWheel.tireTransform.localRotation = Quaternion.Euler(0f, _currentSteerAngle, 0f);
+        }
     }
 }
