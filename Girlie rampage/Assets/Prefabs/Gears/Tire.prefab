@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2811638295408647293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6915088590509793855}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6915088590509793855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811638295408647293}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4612903926858127023}
+  m_Father: {fileID: 3609526444206039059}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5822349691211217436
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,12 +58,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5822349691211217436}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.1693, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3609526444206039059}
+  m_Father: {fileID: 6915088590509793855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &6788968377420950533
 MeshFilter:
@@ -93,6 +125,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3609526444206039059}
   - component: {fileID: 5345739158922770529}
+  - component: {fileID: 4601607962153231913}
+  - component: {fileID: 9074153641543048850}
+  - component: {fileID: 2841639389269888210}
   - component: {fileID: 4443919155215650121}
   m_Layer: 0
   m_Name: Tire
@@ -114,7 +149,7 @@ Transform:
   m_LocalScale: {x: 1.45, y: 1.45, z: 1.45}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4612903926858127023}
+  - {fileID: 6915088590509793855}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5345739158922770529
@@ -129,10 +164,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc28274534a4c04386545224c952872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carController: {fileID: 0}
-  tireTransform: {fileID: 3609526444206039059}
-  carRigidBody: {fileID: 0}
-  isFrontTire: 0
+  gearManager: {fileID: 0}
+  _tireTransform: {fileID: 0}
+  _carRigidBody: {fileID: 0}
+  _carTransform: {fileID: 0}
+  _isFrontTire: 0
+  _rayDidHit: 0
+--- !u!114 &4601607962153231913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452595960637684897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3fa107318b722e41a851dc10efc58ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gearManager: {fileID: 0}
+  _tireTransform: {fileID: 0}
+  _carRigidBody: {fileID: 0}
+  _carTransform: {fileID: 0}
+  _isFrontTire: 0
+  _rayDidHit: 0
+--- !u!114 &9074153641543048850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452595960637684897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781cdc38c844c4d458441068bb3d9c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gearManager: {fileID: 0}
+  _tireTransform: {fileID: 0}
+  _carRigidBody: {fileID: 0}
+  _carTransform: {fileID: 0}
+  _isFrontTire: 0
+  _rayDidHit: 0
+--- !u!114 &2841639389269888210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452595960637684897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca4a80c02d152d42be8a73d9c7baa87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gearManager: {fileID: 0}
+  _tireTransform: {fileID: 0}
+  _carRigidBody: {fileID: 0}
+  _carTransform: {fileID: 0}
+  _isFrontTire: 0
+  _rayDidHit: 0
 --- !u!135 &4443919155215650121
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -12,41 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01037e9806548b64d91a2a4e9a627ba1, type: 3}
   m_Name: TireTest
   m_EditorClassIdentifier: 
-  mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  description: Default tire. Some might call it "bravely default" for reasons.
-  tireMass: 2
-  springStrength: 500
-  suspensionRestDist: 1
-  springDamper: 10
-  frontTireGripFactor: 0.3
-  backTireGripFactor: 0.5
-  steerReturnSpeed: 10
-  carTopSpeed: 100
-  powerCurve:
+  _carName: Default Tire
+  _mesh: {fileID: 0}
+  _description: Some might call it "bravely default" for reasons.
+  _tireMass: 2
+  _springStrength: 500
+  _suspensionRestDist: 1
+  _springDamper: 10
+  _frontTireGripFactor: 0.3
+  _backTireGripFactor: 0.5
+  _steerReturnSpeed: 10
+  _carTopSpeed: 100
+  _powerCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
-      outSlope: 0
-      tangentMode: 34
+      outSlope: -0.9
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 0
+      value: 0.1
+      inSlope: -0.9
       outSlope: 0
-      tangentMode: 34
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  torqueMultiplier: 20
-  groundLayer:
+  _torqueMultiplier: 20
+  _groundLayer:
     serializedVersion: 2
     m_Bits: 64
