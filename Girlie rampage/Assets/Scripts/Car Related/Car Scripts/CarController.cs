@@ -7,31 +7,8 @@ public class CarController : MonoBehaviour
     [Header("GearsManager")]
     [SerializeField] GearManager gearManager;
 
-    [Header("Steering Settings")]
+    [SerializeField] Rigidbody rb;
     
-    [Range(0f, 100f)]
-    [SerializeField] float _maxSteerAngle = 50f;
-    private float MaxSteerAngle
-    {
-        get => _maxSteerAngle;
-        set => _maxSteerAngle = value;
-    }
-
-    [Range(0f, 500f)]
-    [SerializeField] float _steerSpeed = 100f;
-    private float SteerSpeed
-    {
-        get => _steerSpeed;
-        set => _steerSpeed = value;
-    }
-
-    private float _currentSteerAngle = 0f;
-    private float CurrentSteerAngle
-    {
-        get => _currentSteerAngle;
-        set => _currentSteerAngle = value;
-    }
-
 
     void Update()
     {
@@ -42,24 +19,33 @@ public class CarController : MonoBehaviour
     {
         float steerInput = Input.GetAxis("Horizontal");
 
-        CurrentSteerAngle += steerInput * SteerSpeed * Time.deltaTime;
-        CurrentSteerAngle = Mathf.Clamp(CurrentSteerAngle, -MaxSteerAngle, MaxSteerAngle);
+        gearManager.equippedChassiSO.CurrentSteerAngle += steerInput * gearManager.equippedChassiSO.SteerSpeed * Time.deltaTime;
+        gearManager.equippedChassiSO.CurrentSteerAngle = Mathf.Clamp(gearManager.equippedChassiSO.CurrentSteerAngle, -gearManager.equippedChassiSO.MaxSteerAngle, gearManager.equippedChassiSO.MaxSteerAngle);
 
         if (gearManager.frontalTire1 != null && gearManager.frontalTire1.TireTransform != null)
         {
-            gearManager.frontalTire1.TireTransform.localRotation = Quaternion.Euler(0f, CurrentSteerAngle, 0f);
+            gearManager.frontalTire1.TireTransform.localRotation = Quaternion.Euler(0f, gearManager.equippedChassiSO.CurrentSteerAngle, 0f);
         }
 
         if (gearManager.frontalTire2 != null && gearManager.frontalTire2.TireTransform != null)
         {
-            gearManager.frontalTire2.TireTransform.localRotation = Quaternion.Euler(0f, CurrentSteerAngle, 0f);
+            gearManager.frontalTire2.TireTransform.localRotation = Quaternion.Euler(0f, gearManager.equippedChassiSO.CurrentSteerAngle, 0f);
         }
 
         // Resets the steering angle when no input is detected
         if(Input.GetAxis("Horizontal") == 0f)
         {
             // Smoothes out steering reset
-            CurrentSteerAngle = Mathf.Lerp(CurrentSteerAngle, 0f, Time.deltaTime * gearManager.equippedTireSO.SteerReturnSpeed);
+            gearManager.equippedChassiSO.CurrentSteerAngle = Mathf.Lerp(gearManager.equippedChassiSO.CurrentSteerAngle, 0f, Time.deltaTime * gearManager.equippedTireSO.SteerReturnSpeed);
         }
+    }
+
+    public void Brake()
+    {
+        // Direção oposta à velocidade atual
+        Vector3 brakeForce = -rb.velocity.normalized * gearManager.equippedTireSO.BrakeForce;
+
+        // Aplica a força de frenagem
+        rb.AddForce(brakeForce, ForceMode.Acceleration);
     }
 }

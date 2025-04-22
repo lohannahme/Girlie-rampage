@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TireSO", menuName = "Car/TireSO")]
+[CreateAssetMenu(fileName = "TireSO", menuName = "Gear/TireSO")]
 public class TireSO : ScriptableObject
 {
     [Header("General Information")]
-    [field: SerializeField] public string _carName;
+    [field: SerializeField] public string _tireName;
     [field: SerializeField] public Mesh _mesh;
     [field: SerializeField] public string _description;
 
@@ -32,6 +32,9 @@ public class TireSO : ScriptableObject
     [Header("Acceleration Settings")]
     [SerializeField][Range(0f, 1000f)] private float _carTopSpeed;
 
+    [Header("Brake Settings")]
+    [SerializeField][Range(0f, 1000f)] private float _brakeForce;
+
     [Header("Torque Settings")]
     [SerializeField] private AnimationCurve _powerCurve = AnimationCurve.Linear(0, 1, 1, 0.1f);
     [SerializeField] private float _torqueMultiplier;
@@ -51,6 +54,7 @@ public class TireSO : ScriptableObject
     public float CarTopSpeed { get { return _carTopSpeed; } set { _carTopSpeed = value; }  }
     public AnimationCurve PowerCurve { get { return _powerCurve; } set { _powerCurve = value; } }
     public float TorqueMultiplier { get { return _torqueMultiplier; } set { _torqueMultiplier = value; } }
+    public float BrakeForce { get { return _brakeForce; } set { _brakeForce = value; } }
     public LayerMask GroundLayer { get { return _groundLayer; } set { _groundLayer = value; } }
 
 

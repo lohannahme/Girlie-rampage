@@ -23,26 +23,27 @@ MonoBehaviour:
   _backTireGripFactor: 0.5
   _steerReturnSpeed: 10
   _carTopSpeed: 100
+  _brakeForce: 100
   _powerCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: -0.9
-      tangentMode: 0
+      time: 0.011314392
+      value: 0.9987488
+      inSlope: 0.50395703
+      outSlope: 0.50395703
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0.1
-      inSlope: -0.9
-      outSlope: 0
-      tangentMode: 0
+      time: 1.0009714
+      value: 1.4974934
+      inSlope: 0.50395703
+      outSlope: 0.50395703
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GearManager : MonoBehaviour
 {
     public TireSO equippedTireSO;
+    public ChassiSO equippedChassiSO;
 
     [Header("Wheel Transforms")]
     public TireScript frontalTire1;

@@ -13,6 +13,8 @@ public class TireAcceleration : TireScript
             // World-space direction of the acceleration/braking force
             Vector3 accelDir = TireTransform.forward;
 
+            
+
             float accelInput = Input.GetAxis("Vertical");
             // Acceleration torque
             if (accelInput != 0.0f)
