@@ -13,6 +13,7 @@ public class CarController : MonoBehaviour
     void Update()
     {
         Steer();
+        ResetRotation();
     }
 
     public void Steer()
@@ -47,5 +48,14 @@ public class CarController : MonoBehaviour
 
         // Aplica a força de frenagem
         rb.AddForce(brakeForce, ForceMode.Acceleration);
+    }
+
+    public void ResetRotation()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0f);
+            transform.position = new Vector3(transform.position.x, 2.4f, transform.position.z);
+        }
     }
 }

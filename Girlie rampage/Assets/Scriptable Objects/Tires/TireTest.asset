@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01037e9806548b64d91a2a4e9a627ba1, type: 3}
   m_Name: TireTest
   m_EditorClassIdentifier: 
-  _carName: Default Tire
+  _tireName: Default Tire
   _mesh: {fileID: 0}
   _description: Some might call it "bravely default" for reasons.
   _tireMass: 2
@@ -22,25 +22,25 @@ MonoBehaviour:
   _frontTireGripFactor: 0.3
   _backTireGripFactor: 0.5
   _steerReturnSpeed: 10
-  _carTopSpeed: 100
+  _carTopSpeed: 10
   _brakeForce: 100
   _powerCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.011314392
-      value: 0.9987488
-      inSlope: 0.50395703
-      outSlope: 0.50395703
+      time: -0.49623108
+      value: 0.50442505
+      inSlope: 0.33121553
+      outSlope: 0.33121553
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.0009714
-      value: 1.4974934
-      inSlope: 0.50395703
-      outSlope: 0.50395703
+      time: 1
+      value: 1
+      inSlope: 0.33121553
+      outSlope: 0.33121553
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

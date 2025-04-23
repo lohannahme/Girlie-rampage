@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chassiName: Woke Chassi
   _mesh: {fileID: 0}
-  _description: For some reason, white men tend to hate this gear.
+  _description: 
   _maxSteerAngle: 30
   _steerSpeed: 100
-  _currentSteerAngle: 5.4350554e-19
+  _currentSteerAngle: -9.82992e-11

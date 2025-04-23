@@ -6,9 +6,9 @@ using UnityEngine;
 public class TireSO : ScriptableObject
 {
     [Header("General Information")]
-    [field: SerializeField] public string _tireName;
-    [field: SerializeField] public Mesh _mesh;
-    [field: SerializeField] public string _description;
+    [field: SerializeField] private string _tireName;
+    [field: SerializeField] private Mesh _mesh;
+    [field: SerializeField] private string _description;
 
 
     [SerializeField] private float _tireMass = 0f;
@@ -42,21 +42,20 @@ public class TireSO : ScriptableObject
     [Header("Raycast Settings")]
     [SerializeField] private LayerMask _groundLayer;
 
+    public string TireName { get => _tireName; set => _tireName = value; }
+    public Mesh Mesh { get => _mesh; set => _mesh = value; }
+    public string Description { get => _description; set => _description = value; }
 
-
-    public float TireMass { get { return _tireMass; } set { _tireMass = value; } }
-    public float SpringStrength { get { return _springStrength; } set { _springStrength = value; } }
-    public float SuspensionRestDist { get { return _suspensionRestDist; } set { _suspensionRestDist = value; } }
-    public float SpringDamper { get { return _springDamper; } set { _springDamper = value; } }
-    public float FrontTireGripFactor { get { return _frontTireGripFactor; } set { _frontTireGripFactor = value; } }
-    public float BackTireGripFactor { get { return _backTireGripFactor; } set { _backTireGripFactor = value; } }
-    public float SteerReturnSpeed { get { return _steerReturnSpeed; } set { _steerReturnSpeed = value; } }
-    public float CarTopSpeed { get { return _carTopSpeed; } set { _carTopSpeed = value; }  }
-    public AnimationCurve PowerCurve { get { return _powerCurve; } set { _powerCurve = value; } }
-    public float TorqueMultiplier { get { return _torqueMultiplier; } set { _torqueMultiplier = value; } }
-    public float BrakeForce { get { return _brakeForce; } set { _brakeForce = value; } }
-    public LayerMask GroundLayer { get { return _groundLayer; } set { _groundLayer = value; } }
-
-
-
+    public float TireMass { get { return _tireMass; } }
+    public float SpringStrength { get { return _springStrength; } }
+    public float SuspensionRestDist { get { return _suspensionRestDist; } }
+    public float SpringDamper { get { return _springDamper; } }
+    public float FrontTireGripFactor { get { return _frontTireGripFactor; } }
+    public float BackTireGripFactor { get { return _backTireGripFactor; } }
+    public float SteerReturnSpeed { get { return _steerReturnSpeed; } }
+    public float CarTopSpeed { get { return _carTopSpeed; } }
+    public AnimationCurve PowerCurve { get { return _powerCurve; } }
+    public float TorqueMultiplier { get { return _torqueMultiplier; } }
+    public float BrakeForce { get { return _brakeForce; } }
+    public LayerMask GroundLayer { get { return _groundLayer; } }
 }

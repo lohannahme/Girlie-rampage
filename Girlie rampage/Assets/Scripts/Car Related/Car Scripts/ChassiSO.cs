@@ -6,31 +6,19 @@ using UnityEngine;
 public class ChassiSO : ScriptableObject
 {
     [Header("General Information")]
-    [field: SerializeField] public string _chassiName;
-    [field: SerializeField] public Mesh _mesh;
-    [field: SerializeField] public string _description;
+    [field: SerializeField] private string _chassiName;
+    [field: SerializeField] private Mesh _mesh;
+    [field: SerializeField] private string _description;
 
     [Header("Steering Settings")]
-    [SerializeField][Range(0f, 100f)] float _maxSteerAngle = 50f;
-    public float MaxSteerAngle
-    {
-        get => _maxSteerAngle;
-        set => _maxSteerAngle = value;
-    }
-
-    [Range(0f, 500f)]
-    [SerializeField] float _steerSpeed = 100f;
-    public float SteerSpeed
-    {
-        get => _steerSpeed;
-        set => _steerSpeed = value;
-    }
-
+    [SerializeField][Range(0f, 100f)] private float _maxSteerAngle = 50f;
+    [SerializeField][Range(0f, 500f)] private float _steerSpeed = 100f;
     [SerializeField] private float _currentSteerAngle = 0f;
 
-    public float CurrentSteerAngle
-    {
-        get => _currentSteerAngle;
-        set => _currentSteerAngle = value;
-    }
+    public string ChassiName { get => _chassiName; set => _chassiName = value; }
+    public Mesh Mesh { get => _mesh; set => _mesh = value; }
+    public string Description { get => _description; set => _description = value; }
+    public float MaxSteerAngle { get => _maxSteerAngle; set => _maxSteerAngle = value; }
+    public float SteerSpeed { get => _steerSpeed; set => _steerSpeed = value; }
+    public float CurrentSteerAngle { get => _currentSteerAngle; set => _currentSteerAngle = value; }
 }
